@@ -1,6 +1,6 @@
 ---
 title: "Lab 07 - Modelling earnings and course evaluations"
-author: "INSERT NAME HERE"
+author: "Charlie"
 date: "`r Sys.Date()`"
 output: html_document
 ---
