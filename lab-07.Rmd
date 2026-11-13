@@ -48,10 +48,20 @@ The histogram seems to be reasonably normally distributed with a mean of ≈ 35,
 # Exercise 2: Exploring relationship
 
 ```{r}
-#your code here
+college_recent_grads %>%
+  drop_na(median, sharewomen) %>%
+  ggplot(aes(x = sharewomen, y = median)) +
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE) +
+  labs(
+    title = "Median Earnings vs Share of Women", 
+    x = "Share of Women", 
+    y = "Median Earnings"
+  ) +
+  theme_bw()
 ```
 
-*Your explanation*
+As the share of women increases the median earnings decreases, there is a strong negative correlation.
 
 # Exercise 3: Fit and interpret a numerical predictor
 
