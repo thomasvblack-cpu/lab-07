@@ -26,10 +26,23 @@ glimpse(college_grad_df)
 # Exercise 1: Exploratory Data Analysis
 
 ```{r}
-#your code here
+college_recent_grads %>%
+  group_by(median) %>%
+  ggplot(aes(x = median)) +
+  geom_histogram() +
+  labs(title = "Graduate Earnings",
+       x = "Earnings",
+       y = "") +
+  theme_bw()
+```
+```{r}
+college_recent_grads %>%
+  group_by(major_category) %>%
+  summarise(max_median = max(median, na.rm = TRUE)) %>%
+  arrange(desc(max_median))
 ```
 
-*Your explanation*
+The histogram seems to be reasonably normally distributed with a mean of ≈ 35,000 with one outlier sitting around ≈ 110,000. The highest earning category is 'Engineering', whistle the lowest earning category is joint between 'Communications & Journalism' and 'Interdisciplinary'.
 
 
 # Exercise 2: Exploring relationship
